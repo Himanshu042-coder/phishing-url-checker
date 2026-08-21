@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Quiz{% endblock %}
+{% block content %}
+<div class="page">
+<h1>📝 Cyber Security Quiz</h1>
+<form method="POST">
+{% for q in questions %}
+<div class="box">
+<h3>Q{{ loop.index }}. {{ q[0] }}</h3>
+{% for option in q[1] %}
+<label class="option">
+<input type="radio" name="q{{ loop.index0 }}" value="{{ loop.index0 }}" required>
+{{ option }}
+</label>
+{% endfor %}
+</div>
+{% endfor %}
+<button class="btn" type="submit">Submit Quiz</button>
+</form>
+{% if score is not none %}
+<div class="box result">
+<h2>Your Score: {{ score }}/{{ questions|length }}</h2>
+</div>
+{% endif %}
+</div>
+{% endblock %}
