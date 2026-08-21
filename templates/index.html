@@ -1,1 +1,15 @@
-
+{% extends "base.html" %}
+{% block title %}Home - CyberSafe{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>Phishing Awareness & URL Checker</h1>
+    <p>Learn cybersecurity basics and perform simple educational URL risk analysis.</p>
+    <a class="btn" href="/checker">Check a URL</a>
+    <a class="btn secondary" href="/awareness">Learn Security</a>
+</section>
+<section class="cards">
+    <div><h2>🔍 URL Checker</h2><p>Check common suspicious characteristics of a URL.</p></div>
+    <div><h2>🛡️ Awareness</h2><p>Learn about phishing, passwords, 2FA and safe browsing.</p></div>
+    <div><h2>📝 Quiz</h2><p>Test your cybersecurity knowledge.</p></div>
+</section>
+{% endblock %}
