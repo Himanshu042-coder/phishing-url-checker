@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}URL Checker{% endblock %}
+{% block content %}
+<div class="page">
+    <h1>🔍 Phishing URL Checker</h1>
+    <p>Enter a URL for basic educational analysis.</p>
+    <form method="POST" class="box">
+        <input type="text" name="url" value="{{ url }}" placeholder="https://example.com" required>
+        <button class="btn" type="submit">Analyze URL</button>
+    </form>
+
+    {% if result %}
+    <div class="box">
+        <h2>Risk Score: {{ result.score }}/10</h2>
+        <h3 class="status">{{ result.status }}</h3>
+        <h3>Findings</h3>
+        <ul>{% for item in result.warnings %}<li>{{ item }}</li>{% endfor %}</ul>
+        <p class="note">Educational heuristic only; this does not prove that a website is safe or malicious.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
